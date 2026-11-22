@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact – HUBEN</title>
+<meta name="description" content="Associations, centres de formation : devenir partenaire ou prendre contact.">
+<meta property="og:title" content="Contact – HUBEN">
+<meta property="og:description" content="Associations, centres de formation : devenir partenaire ou prendre contact.">
+<meta property="og:image" content="https://adn1312.github.io/huben/images/partage.jpg">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script src="sons.js" defer></script>
+<script src="contact.js" defer></script>
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="entete">
+<div class="largeur entete-interieur">
+<p class="marque"><a href="index.html"><span aria-hidden="true">HUBEN</span><span class="lu">Eubaine</span></a> <span class="sous-titre">Jeux et logiciels accessibles</span></p>
+<nav aria-label="Menu principal">
+<ul class="menu">
+<li><a href="index.html">Accueil</a></li>
+<li><a href="presentation.html">Présentation</a></li>
+<li><a href="creations.html">Créations disponibles</a></li>
+<li><a href="projets.html">Projets à venir</a></li>
+<li><a href="contact.html" aria-current="page">Contact</a></li>
+</ul>
+</nav>
+<button id="bascule-sons" class="bascule-sons" type="button" aria-pressed="true" hidden>Sons <span class="etat-sons" aria-hidden="true">activés</span></button>
+</div>
+</header>
+<main id="contenu" class="largeur">
+<h1>Contact</h1>
+<p class="intro">Une question, une idée, un problème avec un logiciel ? Écrivez-moi avec le formulaire ci-dessous.</p>
+<h2>Devenir partenaire</h2>
+<p>Vous êtes une association, un centre de formation, une structure qui accompagne des personnes déficientes visuelles ? Ces créations sont faites pour circuler. Ensemble, nous pouvons :</p>
+<ul class="principes">
+<li>Faire découvrir les jeux et logiciels à vos adhérents ou à vos stagiaires.</li>
+<li>Organiser des ateliers ou des séances de test.</li>
+<li>Partager vos idées et vos besoins pour les prochaines versions.</li>
+<li>Diffuser les créations auprès de votre réseau.</li>
+</ul>
+<h2 id="titre-formulaire">M'écrire</h2>
+<div id="zone-formulaire">
+<p>Tous les champs sont obligatoires, sauf « Vous êtes ».</p>
+<div id="erreurs" class="erreurs" tabindex="-1" hidden></div>
+<noscript><p>Pour envoyer un message, JavaScript doit être activé dans votre navigateur.</p></noscript>
+<form id="formulaire" class="formulaire" novalidate data-service="service_45fk8h9" data-modele="template_04ixfzr" data-cle="SdJ-edy33buPgXpCh">
+<input type="checkbox" name="botcheck" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="champ">
+<label for="nom">Nom ou structure</label>
+<input id="nom" name="name" type="text" autocomplete="name" required aria-describedby="erreur-nom">
+<p id="erreur-nom" class="erreur-champ" hidden></p>
+</div>
+<div class="champ">
+<label for="email">Adresse e-mail</label>
+<input id="email" name="email" type="email" autocomplete="email" required aria-describedby="erreur-email">
+<p id="erreur-email" class="erreur-champ" hidden></p>
+</div>
+<div class="champ">
+<label for="profil">Vous êtes</label>
+<select id="profil" name="profil">
+<option value="">Non précisé</option>
+<option>Une association</option>
+<option>Un centre de formation ou d'accompagnement</option>
+<option>Un joueur ou un utilisateur</option>
+<option>Un développeur</option>
+<option>Autre</option>
+</select>
+</div>
+<div class="champ">
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="8" required aria-describedby="erreur-message"></textarea>
+<p id="erreur-message" class="erreur-champ" hidden></p>
+</div>
+<p><button type="submit" class="bouton">Envoyer le message</button></p>
+<p id="etat" class="etat" role="status"></p>
+</form>
+</div>
+</main>
+<footer class="pied">
+<div class="largeur">
+<p>Mise à jour : novembre 2026.</p>
+<p class="signature">ADN</p>
+</div>
+</footer>
+</body>
+</html>

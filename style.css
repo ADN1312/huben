@@ -1,0 +1,334 @@
+/*
+  Site vitrine ADN — feuille de style unique.
+  Règles : fond noir, textes blancs (contraste 21:1), liens soulignés,
+  focus clavier très visible, aucune animation, mise en page adaptative.
+  L'or (#f5c542) ne sert qu'aux décorations et au focus, jamais au texte.
+*/
+
+:root {
+  color-scheme: dark;
+  --fond: #000;
+  --texte: #fff;
+  --trait: #474747;
+  --or: #f5c542;
+  --rayon: 18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; min-width: 0; }
+
+html { font-size: 112.5%; } /* 18 px par défaut, agrandissable */
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+.largeur {
+  width: min(100% - 2.5rem, 1140px);
+  margin-inline: auto;
+}
+
+/* Liens : toujours soulignés */
+a { color: var(--texte); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 4px; }
+
+/* Focus clavier : cadre or épais, bien visible */
+:focus-visible {
+  outline: 4px solid var(--or);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Lien d'évitement, visible seulement au clavier */
+.evitement {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  padding: 0.75rem 1.25rem;
+  background: var(--texte);
+  color: var(--fond);
+  font-weight: 700;
+  border-radius: 8px;
+  z-index: 10;
+}
+.evitement:focus { top: 1rem; }
+
+/* En-tête et menu */
+.entete { border-bottom: 1px solid var(--trait); }
+.entete-interieur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 1.25rem;
+}
+.marque { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.9rem; }
+.marque a { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; }
+.marque a:hover { text-decoration: underline; }
+.sous-titre { font-size: 1rem; }
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu a { display: inline-block; padding-block: 0.5rem; }
+.menu a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration-color: var(--or);
+  text-decoration-thickness: 4px;
+}
+
+/* Texte réservé aux lecteurs d'écran (prononciation de HUBEN) */
+.lu {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Bouton de bascule des sons */
+.bascule-sons {
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--texte);
+  background: var(--fond);
+  border: 2px solid var(--trait);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+.bascule-sons:hover { border-color: var(--texte); }
+.bascule-sons[aria-pressed="true"] { border-color: var(--or); }
+.bascule-sons[hidden] { display: none; }
+
+/* Titres */
+h1, h2, h3 { line-height: 1.15; text-wrap: balance; }
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  margin: 3rem 0 1rem;
+  max-width: 22ch;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 4px;
+  margin-top: 1.25rem;
+  background: var(--or);
+  border-radius: 2px;
+}
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.1rem); margin: 3.5rem 0 1.25rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+
+p { margin: 0 0 1rem; max-width: 68ch; }
+.intro { font-size: 1.25rem; max-width: 60ch; }
+
+/* Bandeau de l'accueil (décoratif : son texte est repris dans la page) */
+.bandeau {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: var(--rayon);
+}
+/* Le slogan est déjà dessiné dans le bandeau : on le garde en texte
+   pour les lecteurs d'écran, sans le répéter à l'écran. */
+.slogan {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Easter egg du 29 juillet */
+.anniversaire {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  border: 3px solid var(--or);
+  border-radius: var(--rayon);
+}
+.anniversaire h2 { margin: 0 0 0.75rem; }
+.anniversaire p { margin: 0; font-size: 1.15rem; }
+.anniversaire[hidden] { display: none; }
+
+/* Accueil : texte à gauche, éventail d'affiches à droite */
+.accueil {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.eventail {
+  position: relative;
+  height: 27rem;
+  margin-top: 3rem;
+}
+.eventail img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11.5rem;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--trait);
+}
+.eventail img:nth-child(1) { transform: translate(-115%, -48%) rotate(-9deg); }
+.eventail img:nth-child(2) { transform: translate(15%, -48%) rotate(9deg); }
+.eventail img:nth-child(3) { transform: translate(-50%, -54%); z-index: 1; width: 13rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+/* Boutons (ce sont des liens) */
+.bouton {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border: 3px solid var(--texte);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.bouton:hover { background: var(--texte); color: var(--fond); }
+.bouton-discret { border-color: var(--trait); }
+.bouton-discret:hover { border-color: var(--texte); }
+
+/* Cartes de l'accueil */
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.carte {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+}
+.carte h3 { margin-top: 0; }
+.cartes-une { grid-template-columns: minmax(0, 1fr); }
+.cartes-une .carte { grid-template-columns: 12rem minmax(0, 1fr); padding: 2rem; }
+.cartes-une .carte h3 { font-size: 1.6rem; }
+.cartes-une .accroche { font-size: 1.3rem; }
+.carte .accroche { font-size: 1.05rem; }
+.carte p:last-child { margin-bottom: 0; }
+
+/* Fiches (créations et projets à venir) */
+.fiche {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2.5rem 0 3rem;
+  padding: 2rem;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+}
+.fiche h2 { margin-top: 0; }
+.fiche-texte > :last-child { margin-bottom: 0; }
+
+.visuel {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.accroche { font-size: 1.3rem; font-weight: 600; }
+
+.pratique, .principes { padding-left: 1.4rem; margin: 0 0 1.5rem; }
+.pratique li, .principes li { margin-bottom: 0.5rem; max-width: 64ch; }
+.pratique li::marker, .principes li::marker { color: var(--or); }
+
+.avancement {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--or);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.carte .avancement { font-size: 1rem; padding: 0.35rem 0.8rem; }
+
+.bientot { font-weight: 700; }
+
+/* Formulaire de contact */
+.formulaire { max-width: 40rem; margin-top: 1.5rem; }
+.champ { margin-bottom: 1.5rem; }
+.champ label { display: block; font-weight: 700; margin-bottom: 0.4rem; }
+.champ input, .champ select, .champ textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  color: var(--texte);
+  background: var(--fond);
+  border: 2px solid var(--texte);
+  border-radius: 10px;
+}
+.champ textarea { resize: vertical; min-height: 10rem; }
+.champ select { appearance: auto; }
+.champ [aria-invalid="true"] { border-width: 4px; border-color: var(--or); }
+.erreur-champ { margin: 0.5rem 0 0; font-weight: 700; }
+.erreur-champ::before { content: "Erreur : "; }
+.erreurs {
+  max-width: 40rem;
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  border: 3px solid var(--or);
+  border-radius: 12px;
+}
+.erreurs ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+.erreurs p { margin: 0; }
+button.bouton { font: inherit; font-weight: 700; color: var(--texte); background: var(--fond); cursor: pointer; }
+button.bouton:hover { background: var(--texte); color: var(--fond); }
+.etat { font-weight: 700; min-height: 1.6em; }
+.piege { display: none; }
+#confirmation { margin-top: 1.5rem; font-size: 1.5rem; }
+
+/* Pied de page */
+.pied {
+  margin-top: 5rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--trait);
+  font-size: 0.95rem;
+}
+.pied p { margin: 0 0 0.25rem; }
+.signature { letter-spacing: 0.2em; font-size: 0.85rem; }
+
+/* Écrans étroits (téléphone, fort zoom) : tout passe en une colonne */
+@media (max-width: 900px) {
+  .accueil { grid-template-columns: minmax(0, 1fr); }
+  .eventail { display: none; }
+}
+@media (max-width: 760px) {
+  .fiche { grid-template-columns: minmax(0, 1fr); padding: 1.25rem; gap: 1.5rem; }
+  .fiche .visuel { max-width: 16rem; }
+  h1 { margin-top: 2rem; }
+}
+@media (max-width: 480px) {
+  .carte, .cartes-une .carte { grid-template-columns: minmax(0, 1fr); }
+  .carte .visuel { max-width: 12rem; }
+}
+
+/* Mode contraste élevé de Windows : on garde des bordures visibles */
+@media (forced-colors: active) {
+  .bouton, .fiche, .carte, .avancement { border-color: CanvasText; }
+}
