@@ -34,7 +34,6 @@ body {
 
 /* Liens : toujours soulignés */
 a { color: var(--texte); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
-a:hover { text-decoration-thickness: 4px; }
 
 /* Focus clavier : cadre or épais, bien visible */
 :focus-visible {
@@ -57,36 +56,46 @@ a:hover { text-decoration-thickness: 4px; }
 }
 .evitement:focus { top: 1rem; }
 
-/* En-tête et menu */
-.entete { border-bottom: 1px solid var(--trait); }
-.entete-interieur {
+/* En-tête : bandeau, puis barre avec le bouton Menu et le bouton Sons */
+.entete { border-bottom: 1px solid var(--trait); padding-bottom: 1.25rem; }
+.entete .bandeau { margin-top: 1rem; }
+.barre {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem 2rem;
-  padding-block: 1.25rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-.marque { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.9rem; }
-.marque a { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; }
-.marque a:hover { text-decoration: underline; }
-.sous-titre { font-size: 1rem; }
+.navigation { flex: 1 1 auto; }
+.bouton-menu {
+  font: inherit;
+  font-weight: 700;
+  color: var(--texte);
+  background: var(--fond);
+  border: 3px solid var(--texte);
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  cursor: pointer;
+}
+.bouton-menu[aria-expanded="true"] { border-color: var(--or); }
+.bouton-menu[hidden], .menu[hidden] { display: none; }
 .menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
-  margin: 0;
+  gap: 0.25rem 1.75rem;
+  margin: 1rem 0 0;
   padding: 0;
   list-style: none;
 }
-.menu a { display: inline-block; padding-block: 0.5rem; }
+.menu a { display: inline-block; padding-block: 0.5rem; font-size: 1.1rem; }
 .menu a[aria-current="page"] {
   font-weight: 700;
   text-decoration-color: var(--or);
   text-decoration-thickness: 4px;
 }
 
-/* Texte réservé aux lecteurs d'écran (prononciation de HUBEN) */
+/* Texte réservé aux lecteurs d'écran (prononciation, précisions de liens) */
 .lu {
   position: absolute;
   width: 1px; height: 1px;
@@ -106,7 +115,6 @@ a:hover { text-decoration-thickness: 4px; }
   padding: 0.45rem 1rem;
   cursor: pointer;
 }
-.bascule-sons:hover { border-color: var(--texte); }
 .bascule-sons[aria-pressed="true"] { border-color: var(--or); }
 .bascule-sons[hidden] { display: none; }
 
@@ -198,9 +206,7 @@ p { margin: 0 0 1rem; max-width: 68ch; }
   font-weight: 700;
   text-decoration: none;
 }
-.bouton:hover { background: var(--texte); color: var(--fond); }
 .bouton-discret { border-color: var(--trait); }
-.bouton-discret:hover { border-color: var(--texte); }
 
 /* Cartes de l'accueil */
 .cartes {
@@ -227,6 +233,7 @@ p { margin: 0 0 1rem; max-width: 68ch; }
 .cartes-une .accroche { font-size: 1.3rem; }
 .carte .accroche { font-size: 1.05rem; }
 .carte p:last-child { margin-bottom: 0; }
+.carte .bouton { font-size: 1rem; padding: 0.6rem 1.3rem; }
 
 /* Fiches (créations et projets à venir) */
 .fiche {
@@ -298,8 +305,7 @@ p { margin: 0 0 1rem; max-width: 68ch; }
 .erreurs ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
 .erreurs p { margin: 0; }
 button.bouton { font: inherit; font-weight: 700; color: var(--texte); background: var(--fond); cursor: pointer; }
-button.bouton:hover { background: var(--texte); color: var(--fond); }
-.etat { font-weight: 700; min-height: 1.6em; }
+button.etat { font-weight: 700; min-height: 1.6em; }
 .piege { display: none; }
 #confirmation { margin-top: 1.5rem; font-size: 1.5rem; }
 
@@ -313,6 +319,20 @@ button.bouton:hover { background: var(--texte); color: var(--fond); }
 .pied p { margin: 0 0 0.25rem; }
 .signature { letter-spacing: 0.2em; font-size: 0.85rem; }
 
+/* Effets de survol : seulement avec une souris (sur écran tactile, ils restent
+   « collés » après un appui et brouillent l'affichage) */
+@media (hover: hover) {
+  a:hover { text-decoration-thickness: 4px; }
+  .bouton-menu:hover { background: var(--texte); color: var(--fond); }
+  .bascule-sons:hover { border-color: var(--texte); }
+  .bouton:hover { background: var(--texte); color: var(--fond); }
+  .bouton-discret:hover { border-color: var(--texte); }
+  button.bouton:hover { background: var(--texte); color: var(--fond); }
+}
+
+/* Pas de flash coloré au toucher sur téléphone */
+a, button { -webkit-tap-highlight-color: transparent; }
+
 /* Écrans étroits (téléphone, fort zoom) : tout passe en une colonne */
 @media (max-width: 900px) {
   .accueil { grid-template-columns: minmax(0, 1fr); }
@@ -324,6 +344,8 @@ button.bouton:hover { background: var(--texte); color: var(--fond); }
   h1 { margin-top: 2rem; }
 }
 @media (max-width: 480px) {
+  .menu { flex-direction: column; gap: 0; }
+  .menu a { padding-block: 0.6rem; }
   .carte, .cartes-une .carte { grid-template-columns: minmax(0, 1fr); }
   .carte .visuel { max-width: 12rem; }
 }

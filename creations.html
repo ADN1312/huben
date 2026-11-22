@@ -11,14 +11,18 @@
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="style.css">
 <script src="sons.js" defer></script>
+<script src="menu.js" defer></script>
 </head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
 <header class="entete">
-<div class="largeur entete-interieur">
-<p class="marque"><a href="index.html"><span aria-hidden="true">HUBEN</span><span class="lu">Eubaine</span></a> <span class="sous-titre">Jeux et logiciels accessibles</span></p>
-<nav aria-label="Menu principal">
-<ul class="menu">
+<div class="largeur">
+<img class="bandeau" src="bandeau.webp" alt="" width="2172" height="724">
+<p class="lu"><span aria-hidden="true">HUBEN</span><span class="lu">Eubaine</span>, Jeux et logiciels accessibles. Le choix de l'accessibilité.</p>
+<div class="barre">
+<nav class="navigation" aria-label="Menu principal">
+<button id="bouton-menu" class="bouton-menu" type="button" aria-expanded="true" aria-controls="liste-menu" hidden>Menu</button>
+<ul id="liste-menu" class="menu">
 <li><a href="index.html">Accueil</a></li>
 <li><a href="presentation.html">Présentation</a></li>
 <li><a href="creations.html" aria-current="page">Créations disponibles</a></li>
@@ -27,6 +31,7 @@
 </ul>
 </nav>
 <button id="bascule-sons" class="bascule-sons" type="button" aria-pressed="true" hidden>Sons <span class="etat-sons" aria-hidden="true">activés</span></button>
+</div>
 </div>
 </header>
 <main id="contenu" class="largeur">
