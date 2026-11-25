@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Se désinscrire – HUBEN</title>
+<meta name="description" content="Ne plus être prévenu des sorties HUBEN.">
+<meta property="og:title" content="Se désinscrire – HUBEN">
+<meta property="og:description" content="Ne plus être prévenu des sorties HUBEN.">
+<meta property="og:image" content="https://adn1312.github.io/huben/partage.jpg">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script src="sons.js" defer></script>
+<script src="menu.js" defer></script>
+<script src="commun.js" defer></script>
+<link rel="alternate" type="application/rss+xml" title="Nouveautés HUBEN" href="flux.xml">
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="entete">
+<div class="largeur">
+<img class="bandeau" src="bandeau.webp" alt="" width="2172" height="724">
+<p class="lu"><span aria-hidden="true">HUBEN</span><span class="lu">Eubaine</span>, Jeux et logiciels accessibles. Le choix de l'accessibilité.</p>
+<div class="barre">
+<nav class="navigation" aria-label="Menu principal">
+<button id="bouton-menu" class="bouton-menu" type="button" aria-expanded="true" aria-controls="liste-menu" hidden>Menu</button>
+<ul id="liste-menu" class="menu">
+<li><a href="index.html">Accueil</a></li>
+<li><a href="presentation.html">Présentation</a></li>
+<li><a href="creations.html">Créations disponibles</a></li>
+<li><a href="projets.html">Projets à venir</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button id="bascule-sons" class="bascule-sons" type="button" aria-pressed="true" hidden>Sons <span class="etat-sons" aria-hidden="true">activés</span></button>
+</div>
+</div>
+</header>
+<main id="contenu" class="largeur">
+<h1>Se désinscrire</h1>
+<p class="intro">Vous ne souhaitez plus être prévenu des sorties ? Indiquez votre adresse e-mail : elle sera aussitôt supprimée de la liste.</p>
+<form id="desinscription" class="formulaire liste" novalidate data-url="https://script.google.com/macros/s/AKfycbyXnPoGmZyFyJQKOTexniJgEmB37mYJR8DeZKwC5XghrwaZ-nCTRzq4zDL90Gb9U4QxNA/exec" data-action="desinscription">
+<input type="text" name="piege" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="champ">
+<label for="desinscription-email">Adresse e-mail</label>
+<input id="desinscription-email" name="adresse" type="email" autocomplete="email" required aria-describedby="desinscription-erreur">
+<p id="desinscription-erreur" class="erreur-champ" hidden></p>
+</div>
+<p><button type="submit" class="bouton">Me désinscrire</button></p>
+<p id="desinscription-etat" class="etat" role="status" aria-live="polite"></p>
+</form>
+</main>
+<footer class="pied">
+<div class="largeur">
+<section class="informe" aria-labelledby="titre-informe">
+<h2 id="titre-informe">Rester informé</h2>
+<div class="informe-colonnes">
+<div>
+<h3>Être prévenu des prochaines sorties</h3>
+<p>Recevez un e-mail à chaque nouveau jeu ou logiciel.</p>
+<form id="inscription" class="formulaire liste" novalidate data-url="https://script.google.com/macros/s/AKfycbyXnPoGmZyFyJQKOTexniJgEmB37mYJR8DeZKwC5XghrwaZ-nCTRzq4zDL90Gb9U4QxNA/exec" data-action="inscription">
+<input type="text" name="piege" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="champ">
+<label for="inscription-email">Adresse e-mail</label>
+<input id="inscription-email" name="adresse" type="email" autocomplete="email" required aria-describedby="inscription-erreur">
+<p id="inscription-erreur" class="erreur-champ" hidden></p>
+</div>
+<div class="case">
+<input id="inscription-beta" name="beta" type="checkbox" value="oui">
+<label for="inscription-beta">Je souhaite aussi devenir bêta-testeur des prochains jeux</label>
+</div>
+<p><button type="submit" class="bouton">Me prévenir des sorties</button></p>
+<p id="inscription-etat" class="etat" role="status" aria-live="polite"></p>
+<p class="mention">Votre adresse sert uniquement à vous prévenir des nouvelles sorties et, si vous le souhaitez, à vous proposer des tests. Elle n'est jamais transmise à personne. Vous pouvez <a href="desinscription.html">vous désinscrire</a> à tout moment.</p>
+</form>
+</div>
+<div>
+<h3>Suivre les nouveautés par flux RSS</h3>
+<p>Vous utilisez un lecteur de flux ? Ajoutez-y cette adresse :</p>
+<p class="adresse-flux">https://adn1312.github.io/huben/flux.xml</p>
+<p><button type="button" class="bouton bouton-discret" data-copier="https://adn1312.github.io/huben/flux.xml">Copier l'adresse du flux</button></p>
+<p class="etat" role="status" data-etat-copie></p>
+</div>
+</div>
+</section>
+<p>Mise à jour : novembre 2026.</p>
+<p class="signature">ADN</p>
+</div>
+</footer>
+</body>
+</html>

@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="style.css">
 <script src="sons.js" defer></script>
 <script src="menu.js" defer></script>
+<script src="commun.js" defer></script>
+<link rel="alternate" type="application/rss+xml" title="Nouveautés HUBEN" href="flux.xml">
 </head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -54,12 +56,43 @@
 <li>Sans installation : on copie le fichier DactyloQuest.exe où l'on veut, puis on le lance</li>
 <li>Internet facultatif : seulement pour les parties en ligne et le tableau des scores mondial</li>
 </ul>
-<p><a class="bouton telecharger" href="https://github.com/ADN1312/dactyloquest/releases/latest/download/DactyloQuest.exe">Télécharger Dactylo Quest</a></p>
+<p><a class="bouton telecharger" role="button" href="https://github.com/ADN1312/dactyloquest/releases/latest/download/DactyloQuest.exe">Télécharger Dactylo Quest</a></p>
 </div>
 </div>
 </main>
 <footer class="pied">
 <div class="largeur">
+<section class="informe" aria-labelledby="titre-informe">
+<h2 id="titre-informe">Rester informé</h2>
+<div class="informe-colonnes">
+<div>
+<h3>Être prévenu des prochaines sorties</h3>
+<p>Recevez un e-mail à chaque nouveau jeu ou logiciel.</p>
+<form id="inscription" class="formulaire liste" novalidate data-url="https://script.google.com/macros/s/AKfycbyXnPoGmZyFyJQKOTexniJgEmB37mYJR8DeZKwC5XghrwaZ-nCTRzq4zDL90Gb9U4QxNA/exec" data-action="inscription">
+<input type="text" name="piege" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="champ">
+<label for="inscription-email">Adresse e-mail</label>
+<input id="inscription-email" name="adresse" type="email" autocomplete="email" required aria-describedby="inscription-erreur">
+<p id="inscription-erreur" class="erreur-champ" hidden></p>
+</div>
+<div class="case">
+<input id="inscription-beta" name="beta" type="checkbox" value="oui">
+<label for="inscription-beta">Je souhaite aussi devenir bêta-testeur des prochains jeux</label>
+</div>
+<p><button type="submit" class="bouton">Me prévenir des sorties</button></p>
+<p id="inscription-etat" class="etat" role="status" aria-live="polite"></p>
+<p class="mention">Votre adresse sert uniquement à vous prévenir des nouvelles sorties et, si vous le souhaitez, à vous proposer des tests. Elle n'est jamais transmise à personne. Vous pouvez <a href="desinscription.html">vous désinscrire</a> à tout moment.</p>
+</form>
+</div>
+<div>
+<h3>Suivre les nouveautés par flux RSS</h3>
+<p>Vous utilisez un lecteur de flux ? Ajoutez-y cette adresse :</p>
+<p class="adresse-flux">https://adn1312.github.io/huben/flux.xml</p>
+<p><button type="button" class="bouton bouton-discret" data-copier="https://adn1312.github.io/huben/flux.xml">Copier l'adresse du flux</button></p>
+<p class="etat" role="status" data-etat-copie></p>
+</div>
+</div>
+</section>
 <p>Mise à jour : novembre 2026.</p>
 <p class="signature">ADN</p>
 </div>

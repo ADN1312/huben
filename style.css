@@ -309,6 +309,21 @@ button.etat { font-weight: 700; min-height: 1.6em; }
 .piege { display: none; }
 #confirmation { margin-top: 1.5rem; font-size: 1.5rem; }
 
+/* Pied de page : « Rester informé » (inscription + flux RSS) */
+.informe { margin-bottom: 2.5rem; }
+.informe h2 { margin-top: 0; }
+.informe h3 { margin-top: 0; }
+.informe-colonnes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 2.5rem;
+}
+.informe .formulaire { margin-top: 1rem; }
+.case { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; }
+.case input { width: 1.5rem; height: 1.5rem; margin: 0.15rem 0 0; accent-color: var(--or); flex: none; }
+.mention { font-size: 0.95rem; }
+.adresse-flux { font-family: Consolas, "Courier New", monospace; overflow-wrap: anywhere; }
+
 /* Pied de page */
 .pied {
   margin-top: 5rem;

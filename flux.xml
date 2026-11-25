@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>HUBEN – Jeux et logiciels accessibles</title>
+<link>https://adn1312.github.io/huben/</link>
+<description>Les nouveautés de HUBEN : sorties et avancement des jeux et logiciels accessibles.</description>
+<language>fr</language>
+<item>
+<title>Dactylo Quest 1.0 est disponible</title>
+<link>https://adn1312.github.io/huben/creations.html#dactyloquest</link>
+<guid isPermaLink="false">2026-11-22-Dactylo Quest 1.0 est disponible</guid>
+<pubDate>Sun, 22 Nov 2026 12:00:00 +0000</pubDate>
+<description>Le jeu d'aventure pour apprendre à taper au clavier sans regarder ses mains est téléchargeable gratuitement.</description>
+</item>
+<item>
+<title>Rigged : avancement à 17 %</title>
+<link>https://adn1312.github.io/huben/projets.html#rigged</link>
+<guid isPermaLink="false">2026-11-21-Rigged : avancement à 17 %</guid>
+<pubDate>Sat, 21 Nov 2026 12:00:00 +0000</pubDate>
+<description>Le jeu de combat entièrement jouable à l'oreille avance : 17 % du projet est réalisé.</description>
+</item>
+<item>
+<title>ReadFillSign : le projet est lancé</title>
+<link>https://adn1312.github.io/huben/projets.html#readfillsign</link>
+<guid isPermaLink="false">2026-11-20-ReadFillSign : le projet est lancé</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:00 +0000</pubDate>
+<description>Lire, remplir et signer ses documents en toute autonomie : la première version est en préparation.</description>
+</item>
+</channel>
+</rss>

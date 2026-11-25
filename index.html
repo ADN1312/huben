@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="style.css">
 <script src="sons.js" defer></script>
 <script src="menu.js" defer></script>
+<script src="commun.js" defer></script>
+<link rel="alternate" type="application/rss+xml" title="Nouveautés HUBEN" href="flux.xml">
 <script src="anniversaire.js" defer></script>
 </head>
 <body>
@@ -44,7 +46,7 @@
 <div class="accueil-texte">
 <h1>Des jeux et des logiciels qui se vivent à l'oreille</h1>
 <p class="intro">Je les conçois pour les personnes aveugles et malvoyantes, en tant que formateur en informatique accessible, moi-même malvoyant. Tout se fait au clavier, tout est annoncé par le lecteur d'écran.</p>
-<p class="actions"><a class="bouton" href="creations.html">Voir les créations disponibles</a> <a class="bouton bouton-discret" href="projets.html">Voir les projets à venir</a></p>
+<p class="actions"><a class="bouton" role="button" href="creations.html">Voir les créations disponibles</a> <a class="bouton bouton-discret" role="button" href="projets.html">Voir les projets à venir</a></p>
 </div>
 <div class="eventail" aria-hidden="true">
 <img src="rigged.webp" alt="" width="1024" height="1536">
@@ -60,8 +62,8 @@
 <h3>Dactylo Quest</h3>
 <p class="accroche">Tes dix doigts contre la Tempête.</p>
 <p>Dactylo Quest est un jeu d'aventure qui t'apprend à taper au clavier sans regarder tes mains. Tu traverses 11 mondes et 64 niveaux : des touches essentielles jusqu'aux symboles de la programmation, en passant par les accents et la grande dictée. Au bout de chaque monde, un gardien t'attend.</p>
-<p><a class="bouton bouton-discret" href="creations.html#dactyloquest">Plus de détails<span class="lu"> sur Dactylo Quest</span></a></p>
-<p><a class="bouton telecharger" href="https://github.com/ADN1312/dactyloquest/releases/latest/download/DactyloQuest.exe">Télécharger Dactylo Quest</a></p>
+<p><a class="bouton bouton-discret" role="button" href="creations.html#dactyloquest" aria-label="Plus de détails sur Dactylo Quest">Plus de détails</a></p>
+<p><a class="bouton telecharger" role="button" href="https://github.com/ADN1312/dactyloquest/releases/latest/download/DactyloQuest.exe">Télécharger Dactylo Quest</a></p>
 </div>
 </li>
 </ul>
@@ -73,7 +75,7 @@
 <h3><span lang="en">Rigged</span></h3>
 <p class="accroche">À Babel, tout est truqué : les combats, l'élection, la vie. Et c'est dans le noir qu'on apprend à écouter.</p>
 <p class="avancement">Avancement : 17&nbsp;%</p>
-<p><a class="bouton bouton-discret" href="projets.html#rigged">Plus de détails<span class="lu"> sur <span lang="en">Rigged</span></span></a></p>
+<p><a class="bouton bouton-discret" role="button" href="projets.html#rigged" aria-label="Plus de détails sur Rigged">Plus de détails</a></p>
 
 </div>
 </li>
@@ -83,7 +85,7 @@
 <h3><span lang="en">ReadFillSign</span></h3>
 <p class="accroche">Pas magique, accessible !</p>
 <p class="avancement">Avancement : 5&nbsp;%</p>
-<p><a class="bouton bouton-discret" href="projets.html#readfillsign">Plus de détails<span class="lu"> sur <span lang="en">ReadFillSign</span></span></a></p>
+<p><a class="bouton bouton-discret" role="button" href="projets.html#readfillsign" aria-label="Plus de détails sur ReadFillSign">Plus de détails</a></p>
 
 </div>
 </li>
@@ -91,6 +93,37 @@
 </main>
 <footer class="pied">
 <div class="largeur">
+<section class="informe" aria-labelledby="titre-informe">
+<h2 id="titre-informe">Rester informé</h2>
+<div class="informe-colonnes">
+<div>
+<h3>Être prévenu des prochaines sorties</h3>
+<p>Recevez un e-mail à chaque nouveau jeu ou logiciel.</p>
+<form id="inscription" class="formulaire liste" novalidate data-url="https://script.google.com/macros/s/AKfycbyXnPoGmZyFyJQKOTexniJgEmB37mYJR8DeZKwC5XghrwaZ-nCTRzq4zDL90Gb9U4QxNA/exec" data-action="inscription">
+<input type="text" name="piege" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="champ">
+<label for="inscription-email">Adresse e-mail</label>
+<input id="inscription-email" name="adresse" type="email" autocomplete="email" required aria-describedby="inscription-erreur">
+<p id="inscription-erreur" class="erreur-champ" hidden></p>
+</div>
+<div class="case">
+<input id="inscription-beta" name="beta" type="checkbox" value="oui">
+<label for="inscription-beta">Je souhaite aussi devenir bêta-testeur des prochains jeux</label>
+</div>
+<p><button type="submit" class="bouton">Me prévenir des sorties</button></p>
+<p id="inscription-etat" class="etat" role="status" aria-live="polite"></p>
+<p class="mention">Votre adresse sert uniquement à vous prévenir des nouvelles sorties et, si vous le souhaitez, à vous proposer des tests. Elle n'est jamais transmise à personne. Vous pouvez <a href="desinscription.html">vous désinscrire</a> à tout moment.</p>
+</form>
+</div>
+<div>
+<h3>Suivre les nouveautés par flux RSS</h3>
+<p>Vous utilisez un lecteur de flux ? Ajoutez-y cette adresse :</p>
+<p class="adresse-flux">https://adn1312.github.io/huben/flux.xml</p>
+<p><button type="button" class="bouton bouton-discret" data-copier="https://adn1312.github.io/huben/flux.xml">Copier l'adresse du flux</button></p>
+<p class="etat" role="status" data-etat-copie></p>
+</div>
+</div>
+</section>
 <p>Mise à jour : novembre 2026.</p>
 <p class="signature">ADN</p>
 </div>
